@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>SNEK GAME</h1>
+            <div class="life-bar">
+                <div class="life-bar-inner">
+                    <div class="life-bar-fill" id="life-bar-fill" style="width: 100%;"></div>
+                </div>
+                <span id="life-percentage">100%</span>
+            </div>
+            <div class="stats">
+                <div>Score: <span id="score">0</span></div>
+                <div>Level: <span id="level">1</span></div>
+                <div>Highscore: <span id="highscore">0</span></div>
+            </div>
+            <button id="pause-btn">Pause</button>
+            <div>
+                Speed:
+                <input type="range" id="speed-slider" min="1" max="10" value="5">
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong><br>
+                Use arrow keys to move and don't die!
+            </div>
+        </div>
+        <div class="game-board" id="game-board"></div>
+    </div>
+
+    <script src="script.js">
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then((registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+        }).catch((error) => {
+            console.log('Service Worker registration failed:', error);
+        });
+        });
+    }
+
+    </script>
+</body>
+
+</html>
